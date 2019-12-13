@@ -14,5 +14,10 @@ Start python script with `python opencv-gazebo.py`
 
 ### NOTES: 
 - I preffered version Python 3.6.9 for another OpenCV implementations.
+- Pipeline:
+VideoCapture video("udpsrc port=5600 ! application/x-rtp,payload=96,encoding-name=H264 !"
+                           "rtpjitterbuffer mode=1 ! rtph264depay ! h264parse ! decodebin ! videoconvert ! appsink drop=true max-buffers=1 emit-signals=true sync=false", CAP_GSTREAMER);
+
+It can be improve by more efficiency.
 
 ![Screenshot 1](https://user-images.githubusercontent.com/44507545/70604304-7d424580-1c09-11ea-9a4f-8212e2260ebd.png)
